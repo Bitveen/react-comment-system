@@ -8,8 +8,6 @@ import CommentBox from "CommentBox";
 const store = require("configureStore").configure();
 
 
-
-
 // Foundation
 require("style!css!foundation-sites/dist/css/foundation.min.css");
 
