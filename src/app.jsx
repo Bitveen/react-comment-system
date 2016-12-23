@@ -7,6 +7,9 @@ import CommentBox from "CommentBox";
 
 const store = require("configureStore").configure();
 
+store.subscribe(() => {
+    console.log("state changed", store.getState());
+});
 
 // Foundation
 require("style!css!foundation-sites/dist/css/foundation.min.css");

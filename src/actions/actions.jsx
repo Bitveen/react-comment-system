@@ -1,4 +1,3 @@
-/* All actions creators */
 export const addComment = (author, text) => {
     return {
         type: "ADD_COMMENT",

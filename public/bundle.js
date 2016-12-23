@@ -62,6 +62,10 @@
 
 	var store = __webpack_require__(220).configure();
 
+	store.subscribe(function () {
+	    console.log("state changed", store.getState());
+	});
+
 	// Foundation
 	__webpack_require__(337);
 
@@ -23801,6 +23805,8 @@
 
 	var _reactRedux = __webpack_require__(178);
 
+	var _actions = __webpack_require__(341);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23825,6 +23831,13 @@
 	        key: "handleSubmitForm",
 	        value: function handleSubmitForm(e) {
 	            e.preventDefault();
+	            var author = this.refs.author.value.trim();
+	            var text = this.refs.text.value.trim();
+	            if (author && text) {
+	                this.props.dispatch((0, _actions.addComment)(author, text));
+	                this.refs.author.value = "";
+	                this.refs.text.value = "";
+	            }
 	        }
 	    }, {
 	        key: "render",
@@ -23985,7 +23998,6 @@
 	var _reducers = __webpack_require__(221);
 
 	var configure = exports.configure = function configure() {
-
 	    var reducer = (0, _redux.combineReducers)({
 	        comments: _reducers.commentsReducer
 	    });
@@ -39492,6 +39504,23 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 341 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var addComment = exports.addComment = function addComment(author, text) {
+	    return {
+	        type: "ADD_COMMENT",
+	        author: author,
+	        text: text
+	    };
+	};
 
 /***/ }
 /******/ ]);
