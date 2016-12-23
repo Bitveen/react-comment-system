@@ -1,10 +1,15 @@
 import { combineReducers, createStore } from "redux";
-import { commentReducer } from "reducers";
+import { commentsReducer } from "reducers";
 
 
 export const configure = () => {
+
     const reducer = combineReducers({
-        comments: commentReducer
+        comments: commentsReducer
     });
+
+
+
+
     return createStore(reducer);
 };
