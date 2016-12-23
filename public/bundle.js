@@ -23893,6 +23893,12 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(178);
+
+	var _moment = __webpack_require__(227);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
 	var _Comment = __webpack_require__(219);
 
 	var _Comment2 = _interopRequireDefault(_Comment);
@@ -23917,11 +23923,40 @@
 	    _createClass(CommentList, [{
 	        key: "render",
 	        value: function render() {
+	            var comments = this.props.comments;
+
+
+	            var renderComments = function renderComments() {
+	                if (comments.length > 0) {
+	                    return comments.map(function (comment) {
+	                        return _react2.default.createElement(
+	                            _Comment2.default,
+	                            { key: comment.id },
+	                            _react2.default.createElement(
+	                                "div",
+	                                null,
+	                                comment.author
+	                            ),
+	                            _react2.default.createElement(
+	                                "div",
+	                                null,
+	                                comment.text
+	                            )
+	                        );
+	                    });
+	                } else {
+	                    return _react2.default.createElement(
+	                        "h3",
+	                        null,
+	                        "There are no comments!"
+	                    );
+	                }
+	            };
+
 	            return _react2.default.createElement(
 	                "div",
-	                null,
-	                "CommentList",
-	                _react2.default.createElement(_Comment2.default, null)
+	                { className: "comment-list" },
+	                renderComments()
 	            );
 	        }
 	    }]);
@@ -23929,7 +23964,11 @@
 	    return CommentList;
 	}(_react.Component);
 
-	exports.default = CommentList;
+	exports.default = (0, _reactRedux.connect)(function (state) {
+	    return {
+	        comments: state.comments
+	    };
+	})(CommentList);
 
 /***/ },
 /* 219 */
@@ -23946,8 +23985,6 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(178);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23971,8 +24008,8 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                "div",
-	                null,
-	                "Comment"
+	                { className: "callout comment" },
+	                this.props.children
 	            );
 	        }
 	    }]);
@@ -23980,7 +24017,7 @@
 	    return Comment;
 	}(_react.Component);
 
-	exports.default = (0, _reactRedux.connect)()(Comment);
+	exports.default = Comment;
 
 /***/ },
 /* 220 */
