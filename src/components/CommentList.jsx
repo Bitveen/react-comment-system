@@ -16,15 +16,10 @@ class CommentList extends Component {
         let renderComments = () => {
             if (comments.length > 0) {
                 return comments.map((comment) => {
-                    return (
-                        <Comment key={comment.id}>
-                            <div>{comment.author}</div>
-                            <div>{comment.text}</div>
-                        </Comment>
-                    );
+                    return <Comment key={comment.id} {...comment}/>;
                 });
             } else {
-                return <h3>There are no comments!</h3>
+                return <h3 className="text-center subheader">There are no comments!</h3>
             }
         };
 

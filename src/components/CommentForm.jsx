@@ -22,14 +22,16 @@ class CommentForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="comment-form">
                 <form onSubmit={this.handleSubmitForm}>
-                    <div>
+                    <label>
+                        Your name:
                         <input type="text" ref="author" placeholder="Enter your name..."/>
-                    </div>
-                    <div>
+                    </label>
+                    <label>
+                        Your message:
                         <textarea ref="text" placeholder="Your comment..."></textarea>
-                    </div>
+                    </label>
                     <div>
                         <button type="submit" className="button">Send</button>
                     </div>

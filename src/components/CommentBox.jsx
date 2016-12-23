@@ -11,9 +11,8 @@ export default class CommentBox extends Component {
 
     render() {
         return (
-            <div className="row">
+            <div className="row comment-box">
                 <div className="columns small-centered large-6 medium-8 small-10">
-                    <h3 className="text-center">Comments</h3>
                     <div className="card">
                         <div className="card-section">
                             <CommentList />

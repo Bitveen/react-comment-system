@@ -15,6 +15,9 @@ store.subscribe(() => {
 require("style!css!foundation-sites/dist/css/foundation.min.css");
 
 
+// Styles
+require("style!css!sass!styles/app.scss");
+
 render(
     <Provider store={store}>
         <CommentBox />

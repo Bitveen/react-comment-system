@@ -14,6 +14,9 @@ export const commentsReducer = (state = [], action) => {
                 }
             ];
             break;
+        case "REMOVE_COMMENT":
+            return state.filter((comment) => comment.id !== action.id);
+            break;
         default:
             return state;
     }

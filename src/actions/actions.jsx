@@ -5,3 +5,10 @@ export const addComment = (author, text) => {
         text: text
     };
 };
+
+export const removeComment = (id) => {
+    return {
+        type: "REMOVE_COMMENT",
+        id
+    };
+};
