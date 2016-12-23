@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addComment } from "actions";
 
-class CommentForm extends Component {
+export class CommentForm extends Component {
     constructor(props) {
         super(props);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
